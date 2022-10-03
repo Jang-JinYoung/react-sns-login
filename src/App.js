@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -15,17 +14,17 @@ function App() {
       redirect_uri: "http://localhost:3000/oauth2/callback/kakao",
       prompt: "login",
     },
-    
+
   };
-  
+
   const getSNSAuthUri = (e) => {
     return Object.entries(SNS[e])
       .map(([key, value]) => value && `${key}=${value}`)
       .filter((v) => v)
       .join("&");
   };
-  
-  
+
+
   /** SNS 로그인 버튼 클릭 */
   const clickSNSLoginButton = (type) => {
     window.location.href = `${SNSauthUri[type]}${getSNSAuthUri(type)}`;
@@ -36,18 +35,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="login_sns">
-          <h3>SNS 계정 간편가입</h3>
-          <ul>
-            {loginType.map((type) => {
-              return (
-                <li key={type}>
-                  <button style={{ marginTop: "10px" }} onClick={() => clickSNSLoginButton(type)}>{type}</button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <h3>SNS 계정 간편가입</h3>
+        <ul>
+          {loginType.map((type) => {
+            return (
+              <li key={type}>
+                <button style={{ marginTop: "10px" }} onClick={() => clickSNSLoginButton(type)}>{type}</button>
+              </li>
+            );
+          })}
+        </ul>
       </header>
     </div>
   );

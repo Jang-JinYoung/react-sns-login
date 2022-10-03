@@ -2,18 +2,33 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const authUri = {
+  const SNSauthUri = {
     kakao: "https://kauth.kakao.com/oauth/authorize?",
-    naver: "https://nid.naver.com/oauth2.0/authorize?",
-    google: "https://accounts.google.com/o/oauth2/v2/auth?",
-    apple: "https://appleid.apple.com/auth/authorize?",
   };
 
   const loginType = ["kakao", "naver", "google", "apple"];
 
+  const SNS = {
+    kakao: {
+      client_id: "client_id",
+      response_type: "code",
+      redirect_uri: "http://localhost:3000/oauth2/callback/kakao",
+      prompt: "login",
+    },
+    
+  };
+  
+  const getSNSAuthUri = (e) => {
+    return Object.entries(SNS[e])
+      .map(([key, value]) => value && `${key}=${value}`)
+      .filter((v) => v)
+      .join("&");
+  };
+  
+  
   /** SNS 로그인 버튼 클릭 */
   const clickSNSLoginButton = (type) => {
-    // window.location.href = `${authUri[type]}${getSNSAuthUri(type)}`;
+    window.location.href = `${SNSauthUri[type]}${getSNSAuthUri(type)}`;
   };
 
 
@@ -39,3 +54,5 @@ function App() {
 }
 
 export default App;
+
+

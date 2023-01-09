@@ -1,5 +1,5 @@
 import './App.css';
-import SNSLogin from './SNSLogin';
+import SNSLogin from './page/SNSLogin';
 
 function App() {
 

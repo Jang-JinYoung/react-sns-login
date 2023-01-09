@@ -2,7 +2,7 @@ import React from "react";
 
 const login = {
     "naver" : "https://nid.naver.com/oauth2.0/authorize",
-    "kakao" : " https://kauth.kakao.com/oauth/authorize",
+    "kakao" : "https://kauth.kakao.com/oauth/authorize",
 }
 
 // https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=h9rA5YtXEZYFtXZ1pKKe&redirect_uri=http://localhost:3000/callback
@@ -15,7 +15,7 @@ const naver = {
 // https://kauth.kakao.com/oauth/authorize?client_id=f0db481b6229a4dddd63ecd236be6b92&redirect_uri=http://localhost:3000/callback&response_type=code
 const kakao = {
     "response_type" : "code",
-    "client_id" : "	f0db481b6229a4dddd63ecd236be6b92",
+    "client_id" : "f0db481b6229a4dddd63ecd236be6b92",
     "redirect_uri" : "http://localhost:3000/callback",
 };
 
